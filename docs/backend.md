@@ -79,20 +79,23 @@ $env:LAB_DATABASE_URL = "sqlite:///C:/Users/你的用户名/AppData/Local/Temp/l
 | GET | `/api/devices/{device_id}/inspections` | ✅ |
 | POST | `/api/devices/{device_id}/inspections` | ✅ |
 | PATCH | `/api/devices/{device_id}/fault` | ✅ |
-| GET | `/api/stats` | ⏳ 成员 C 负责，尚未实现 |
+| GET | `/api/stats` | ✅ 成员 C 已实现 |
 
-`GET /api/stats` 的接入方式（供 C 使用）：
+`GET /api/stats` 的实现位置：
 
-1. 新增 `app/routers/stats.py`，按 `docs/api.md` 5.7 的口径实现统计；
-2. 在 `app/main.py` 中注册：
+1. `app/routers/stats.py` 按 `docs/api.md` 5.7 的口径聚合统计；
+2. `app/main.py` 注册 `/api/stats`；
+3. `app/schemas.py` 的 `StatsOut` 约束响应字段。
 
-```python
-from app.routers import stats
+运行接口测试：
 
-app.include_router(stats.router, prefix="/api")
+```powershell
+cd backend
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m pytest -q
 ```
 
-`main.py` 中已留好注释位置。
+测试会自动创建临时 SQLite 数据库并在结束后删除，不会修改 `lab.db`。
 
 ## 6. 联调示例
 

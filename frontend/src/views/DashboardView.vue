@@ -337,7 +337,7 @@ onMounted(() => {
           </div>
           <p v-if="statsFallback" class="stats-source-note">
             <AppIcon name="info" :size="13" />
-            后端 /api/stats 暂未启用，当前统计由设备与巡检接口汇总
+            当前后端未提供 /api/stats，统计由设备与巡检接口临时汇总
           </p>
         </div>
       </aside>
