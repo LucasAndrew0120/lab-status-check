@@ -227,3 +227,11 @@ __marimo__/
 *.sqlite
 *.sqlite3
 
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.vite/
+
