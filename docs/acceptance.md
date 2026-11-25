@@ -1,7 +1,7 @@
 # 集成验收与联调缺陷复验记录
 
 > 验收日期：2026-11-25
-> 验收范围：`main` 已合并的后端核心、PR #4 前端，以及 `feat/search-tests` 的统计与测试补充。
+> 验收范围：`main` 已合并的后端核心、PR #4 前端，以及 PR #5 的统计与测试补充。
 > 接口契约：[`api.md`](api.md) v0.2。
 
 ## 1. 验证环境
@@ -13,7 +13,7 @@
 | Node.js | 24.18.0 |
 | 后端依赖 | 项目内 `.venv` |
 | 数据库 | pytest 临时 SQLite；冒烟使用系统临时 SQLite |
-| 分支 | `feat/search-tests` |
+| 分支 | `feat/search-tests`（PR #5） |
 
 ## 2. PR #4 前端审查
 

@@ -136,6 +136,6 @@ npm run build
 |---|---|---|
 | `feat/backend-core` | 后端核心与示例数据 | 已合并 |
 | `feat/frontend-pages` | 前端页面与联调 | 已合并，PR #4 |
-| `feat/search-tests` | 统计接口、测试、文档与验收 | 开发中 |
+| `feat/search-tests` | 统计接口、测试、文档与验收 | PR #5 审核中 |
 
 当前功能、测试和构建验证结果记录在 [`docs/acceptance.md`](docs/acceptance.md)。最终验收仍应以最新 `main` 上重新执行的测试和前端构建结果为准。
