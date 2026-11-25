@@ -73,7 +73,7 @@ npm run dev
 | 页面 / 操作 | 接口 | 状态 |
 |---|---|---|
 | 后端在线检查 | `GET /api/health` | 已接入 |
-| 首页统计卡片 | `GET /api/stats` | 后端暂未实现，前端自动汇总降级（见第 4 节） |
+| 首页统计卡片 | `GET /api/stats` | 已接入，正式统计接口 |
 | 首页故障队列 | `GET /api/devices?status=fault` | 已接入 |
 | 设备台账 / 搜索 / 筛选 | `GET /api/devices?...` | 已接入 |
 | 设备详情 | `GET /api/devices/{id}` | 已接入 |
@@ -91,17 +91,17 @@ npm run dev
 
 ## 4. `/api/stats` 兼容处理
 
-当前 `main` 上的后端只实现了设备与巡检接口，`GET /api/stats` 仍由成员 C 负责（见 `docs/backend.md`）。
+后端现已提供 `GET /api/stats`，首页默认使用正式统计接口。
 
-为了在 C 完成接口前首页仍可用，前端 `src/api/index.js` 提供了 `fetchDashboardStats()`：
+前端 `src/api/index.js` 仍保留旧后端的兼容降级：
 
 1. 优先请求 `GET /api/stats`；
 2. 如果该接口返回 404，则用 `GET /api/devices` 和每台设备的 `GET /api/devices/{id}/inspections` 即时汇总；
 3. 统计口径与 `docs/api.md` 5.7 一致；
-4. 此时首页健康度卡片底部会显示「后端 /api/stats 暂未启用，当前统计由设备与巡检接口汇总」；
+4. 此时首页健康度卡片底部会显示旧后端统计降级提示；
 5. C 实现统计接口后，前端会自动切回正式接口，页面代码无需修改。
 
-> 该降级只在 404 时触发；后端服务异常等其它错误仍会正常显示错误状态，不会掩盖问题。
+> 该降级只在 404 时触发；后端服务异常等其它错误仍会正常显示错误状态，不会掩盖问题。当前 `main` 已接入正式接口，正常联调不会触发降级。
 
 ## 5. 页面状态与错误处理
 

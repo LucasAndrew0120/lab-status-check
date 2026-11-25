@@ -10,9 +10,8 @@ export const isMock = hasFlag ? flag.toLowerCase() === 'true' : false
 export const api = isMock ? mockApi : realApi
 
 /**
- * 后端当前尚未实现 GET /api/stats（成员 C 负责）。
- * 在接口返回 404 时，用设备列表 + 巡检列表即时汇总，保证首页可用；
- * 等 /api/stats 上线后会自动优先使用正式接口，无需修改页面。
+ * 优先使用 GET /api/stats。
+ * 兼容尚未提供该接口的旧后端：仅在 404 时用设备与巡检列表即时汇总。
  */
 export async function fetchDashboardStats() {
   try {

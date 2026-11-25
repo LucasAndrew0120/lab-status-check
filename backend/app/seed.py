@@ -6,7 +6,7 @@
 
 数据分布（与 docs/api.md 7.1 对齐）：
     10 台设备：7 台 normal（其中 1 台故障已解决）、2 台 pending、1 台 processing
-    15 条巡检记录
+    14 条巡检记录
 """
 
 import argparse

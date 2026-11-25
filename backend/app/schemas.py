@@ -64,3 +64,13 @@ class FaultUpdate(BaseModel):
 
 class HealthOut(BaseModel):
     status: str
+
+
+class StatsOut(BaseModel):
+    total_devices: int
+    normal_devices: int
+    fault_devices: int
+    pending_faults: int
+    processing_faults: int
+    resolved_faults: int
+    total_inspections: int
